@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <menuitem id="main_management_menu" name="Librarian"
+      web_icon="chinhsachcongty,static/description/icon.png"/>
+    <menuitem id="management_menu" name="Librarian"
+      parent="main_management_menu"/>
+    
+
+    </data>
+</odoo>

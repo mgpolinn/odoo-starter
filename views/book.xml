@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="book_list_action">
+            <field name="name">Book</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">librarian.book</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="book_tree_view" >
+            <field name="name">book.tree</field>
+            <field name="model">librarian.book</field>
+            <field name="arch" type="xml">
+                <tree string="Book Tree">
+                    <field name="booktitle"/>
+                    <field name="author"/>
+                    <field name="publishingcompany"/>
+                </tree>
+            </field>
+        </record>
+       <record id="import_action" model="ir.actions.act_window">
+            <field name="name">import action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.xls</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <record id="form_import" model="ir.ui.view">
+            <field name="name">Form Import</field>
+            <field name="model">import.xls</field>
+            <field name="arch" type="xml">
+                <form string="Import a new File">
+                    <sheet>
+                     <div class="oe_import_box col-sm-9">
+                        <div class="col-sm-12">
+                         <p>Select a CSV or Excel file to importd</p>
+                        <field name="xls_file"/>
+                            <footer>
+                                <button string="Imports" type="object" name="import_xls" class="oe_highlight"/>
+                                <button string="Cancel" class ="oe_link" special="cancel"/>
+                            </footer>
+                        </div>
+                     </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <menuitem id="book_menu" name="Book"
+      action="import_action" sequence="1"/>
+    </data>
+</odoo>
